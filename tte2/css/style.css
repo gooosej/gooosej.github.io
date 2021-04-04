@@ -1,0 +1,456 @@
+* {
+    box-sizing: border-box;
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins-Regular.woff) format('woff');
+    font-display: swap;
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins-Medium.woff) format('woff');
+    font-display: swap;
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins-Bold.woff) format('woff');
+    font-display: swap;
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins-SemiBold.woff) format('woff');
+    font-display: swap;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+:root {  /*  в root обявляются глобальные переменные для всего сайта */
+    --font-family: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: 400;
+}
+
+img {
+    max-width: 100%;
+}
+
+.list-reset {         /* Убираем стили списков */
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    font-family: var(--font-family);
+    background-color: transparent;
+    cursor: pointer;    /* курсор в виде руки при наавидении на btn */
+}
+
+.conteiner {
+    max-width: 1140px;
+    padding: 0 15px;
+    margin: 0 auto; /* выравнивание по центру */ 
+}
+
+.link {
+    display: inline-flex;  /*  Это значение генерирует блочный элемент, 
+    который обтекается другими элементами веб-страницы подобно встроенному элементу. 
+    Фактически такой элемент по своему действию похож на встраиваемые элементы (вроде тега <img>).
+    ри этом его внутренняя часть форматируется как блочный элемент, а сам элемент — как встроенный. */
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 16px;
+    text-decoration: none;
+    color: #e0e0e0;
+    transition: color 0.3s ease-out; /* Устанавливает эффект перехода между 
+    двумя состояниями элемента, они могут быть определены 
+    с помощью псевдоэлемента :hover или :active  */
+}
+
+.link svg {
+    fill: currentColor;  /* меняем цвет стрелки svg */
+    width: 10px;
+    height: 10px;
+}
+
+.link span {
+    text-indent: 8px;  /* отступ перед текстом  */
+    border-bottom: 2px solid currentColor;  /* currentColor дублирует значение уже заданого цвета */
+    /* border-bottom толщина подчеркивания  */
+}
+
+.link:hover {
+    color: yellow;
+}
+
+.services-title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 46px;
+    color: #4D533C;
+}
+    
+
+
+.header {
+    padding: 17px 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.logo img {
+    max-width: 70px;
+}
+
+.header-cont {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.burger {
+    --offset-horizontal: 11px;
+    --offset-vertical: 14px;
+    position: relative;
+    border-radius: 100%;
+    padding: var(--offset-vertical);
+    width: 40px;
+    height: 40px;
+    background-color: #f5f6f7;
+}
+
+.burger-line {
+    position: absolute;
+    left: 50%;
+    top: var(--offset-vertical);
+    display: inline-block;
+    width: calc(100% - (var(--offset-horizontal)*2));
+    height: 3px;
+    background-color: black;
+    transform: translateX(-50%);
+}
+
+.burger-line:nth-child(2) {
+    top: calc(var(--offset-vertical) + 6px);
+}
+
+.burger-line:nth-child(3) {
+    top: calc(var(--offset-vertical) + 12px);
+}
+
+.header-cont {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hero {
+    padding-top: 170px;
+    padding-bottom: 96px;
+    background-image:url("../img/hero.jpg");
+    background-position: center;
+    background-repeat: no-repeat;    /* что-бы изображение не повторялось */
+    background-size: cover;    /* что-бы картинка была всегда растянута */
+}
+
+.hero-content {
+    max-width: 616px;
+    color: #fff;
+}
+
+.hero-subtitle {
+    display: inline-block;
+    margin-bottom: 22px;
+    font-weight: 500;  /* жирность шрифта */
+    font-size: 14px;
+    line-height: 23px;
+}
+
+.hero-title {
+    margin: 0; /* margin Устанавливает величину отступа от каждого края элемента */
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 74px;
+}
+
+.hero-descr {
+    margin: 0;
+    margin-bottom: 45px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.hero-link {
+    color: yellow;
+}
+
+.services {
+    padding-top: 140px;
+    padding-bottom: 50px;
+}
+
+.site-title {
+    margin: 0;
+    margin-bottom: 87px;
+    max-width: 606px;
+}
+
+.services-list {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-left: 20px;
+}
+
+.services-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.services-subtitle {
+    margin: 0;
+    margin-bottom: 20px;
+    max-width: 183px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    text-transform: uppercase;
+    color: #4D533C;
+}
+
+.services-descr {
+    margin: 0;
+    margin-bottom: 56px;
+    max-width: 194px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+    color: rgba(33, 56, 66, 0.6);
+}
+
+.services-link {
+    margin-bottom: 150;
+    margin-top: auto;
+}
+
+.get-sterted {
+    position: relative;
+    top: 180px;
+    padding: 70px 0;
+    background-color: #fafafa;
+    box-shadow: 50px 130px 100px rgba(0, 0, 0, 0.145947);
+    width: 88%;
+}
+
+.get-started-title {
+    margin: 0;
+    margin-bottom: 50px;
+    max-width: 822px;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 74px;
+    color: #4D533C;
+}
+
+.footer {
+    padding-top: 300px;
+    color: #fff;
+    background-image: url("/img/footer-fon.jpg");
+    background-position: center;
+    background-repeat: no-repeat;    /* что-бы изображение не повторялось */
+    background-size: cover;    /* что-бы картинка была всегда растянута */
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 52px;
+    border-bottom: 1px solid #5D6544;
+}
+
+.footer-contacts-item:not(:last-child) {  /* у всех элементов кроме поледнего */ 
+    margin-right: 128px;
+}
+
+.footer-contact-text {
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 40px;
+    color: #B6C197;
+}
+
+.footer-contacts-value {
+    display: inline-block;
+    font-style: normal;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 40px;
+    color: #fff;
+}
+
+.footer-title {
+    margin-bottom: 21px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    text-transform: uppercase;   /* все символы большие */
+    color: #FFFFFF;
+}
+
+.footer-midle {
+    --grid-gap: 70px;
+    padding: 60px 0;
+    display: grid;     
+    gap:  var(--grid-gap);
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid #5D6544;
+}
+
+.footer-column:last-child {
+    position: relative;
+}
+
+.footer-column:last-child::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: calc(-1 *  (var(--grid-gap)));
+    width: 1px;
+    height: 80%;
+    background-color: #5D6544;
+}
+
+.footer-link {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 40px;
+    color: #B6C197;
+}
+
+.footer-text {
+    margin: 0;
+    margin-bottom: 23px;
+    font-size: 16px;
+    line-height: 26px;
+    color: #B6C197;
+}
+
+.footer-mail {
+    display: inline-block;
+    margin-bottom: 24px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+}
+
+.socila-item:not(:last-child) {
+    margin-right: 11px;
+}
+
+.social-link {
+    display: block;
+    width: 33px;
+    height: 33px;
+    background-color: #444A34;
+    border-radius: 100%;
+    background-size: 20px auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opaciti 0.3s ease-in-out;
+}
+
+.social-link-fb {
+    background-image: url(../img/facebook-app-symbol.png);
+}
+
+.social-link-tw {
+    background-image: url(../img/twitter.png);
+}
+
+.social-link-inst {
+    background-image: url(../img/instagram.png);
+}
+
+.social-link-in {
+    background-image: url(../img/linkedin.png);
+}
+
+.social-link:hover {
+    opacity: 1;
+}
+
+.copyright {
+    font-size: 14px;
+    line-height: 21px;
+    color: #B5C096;
+}
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 0;
+}
+
+@media (max-width: 992px) {
+    .services-list {
+        gap: 50px;
+        grid-template-columns: repeat(2, 1fr);
+        margin-left: 20px;
+    }
+    .services-descr {
+        max-width: none;
+    }
+
+    .services-subtitle {
+    }
+}
+
+@media (max-width: 768px) {
+    
+}
+
+@media (max-width: 576px) {
+    
+}
+
+@media (max-width: 375px) {
+    
+}
